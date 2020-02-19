@@ -2,9 +2,9 @@
 
 Grid::Grid(){
   //creating a grid
-  grid = new char* [height];
+  grid = new char*[height];
   for(int i=0;i<height;++i){
-    grid[i]= new char* [width];
+    grid[i]= new char[width];
   }
 
   //initializing default values to null character
@@ -15,7 +15,7 @@ Grid::Grid(){
   }
 }
 
-Grid::Grid(char* grid, int height, int width){
+Grid::Grid(char** grid, int height, int width){
   this->grid = grid;
   this->height = height;
   this->width = width;
@@ -23,20 +23,34 @@ Grid::Grid(char* grid, int height, int width){
 }
 
 Grid::Grid(int height, int width, double density){
-  grid = new char[height];
+  this->height=height;
+  this->width=width;
+  grid = new char*[height];
   for(int i=0;i<height;++i){
     grid[i] = new char[width];
   }
   //fill with given density
-  density*=100;
+  //floors the density if density is not a whole number
+  //density = floor(density*(height*width));
+
   for(int r=0;r<height;++r){
     for(int c=0;c<width;++c){
-      grid[r][c]='\0';
+      if(rand()%100<=density*100){ //fix
+        grid[r][c]='X';
+        density--;
+      }else{
+        grid[r][c]='-';
+      }
     }
   }
+
 }
 
 void Grid::printGrid(){
+  //print generation number
+  cout << "gen: " << 0 << endl;
+
+  //print grid
   for(int r=0;r<height;++r){
     for(int c=0;c<width;++c){
       cout << grid[r][c] << " ";

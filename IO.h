@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <ios>
+#include "Grid.cpp"
 
 using namespace std;
 
@@ -15,7 +16,6 @@ public:
   void print();
   void openInFile(string filename);
   void closeInFile();
-  //void openOutFile(string outfilename);
 
 private:
   string filename;
@@ -24,7 +24,8 @@ private:
   int height;
   int width;
   double density;
-  char grid;
+  Grid* g;
+  char** grid;
 
   ifstream ifs;
   ofstream ofs;

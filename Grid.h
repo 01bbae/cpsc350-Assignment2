@@ -1,11 +1,13 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
+
 class Grid{
 public:
   Grid();
-  Grid(char* ar,int height, int width);
-  Grid(int height, int width, int density);
+  Grid(char** grid, int height, int width);
+  Grid(int height, int width, double density);
   ~Grid();
 
   //methods
@@ -17,8 +19,6 @@ public:
   int height;
   int width;
   double density;
-  char* rows;
-  char* cols;
-  char grid;
+  char** grid;
 
 };
