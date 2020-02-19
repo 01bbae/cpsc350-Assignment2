@@ -1,4 +1,8 @@
 #include "IO.h"
+#include "PlayClassic.h"
+#include "PlayDoughnut.h"
+#include "PlayMirror.h"
+#include "Grid.h"
 
 IO::IO(){
   int input;
@@ -12,6 +16,9 @@ IO::IO(){
   int height;
   double density;
 
+  PlayClassic classic;
+  PlayDoughnut doughnut;
+  PlayMirror mirror;
 
   if(input==1){
     cout << "Enter the map file name: " << endl;
@@ -56,6 +63,7 @@ IO::IO(){
   cout << "3 for Doughnut" << endl;
   cin >> mode;
 
+<<<<<<< HEAD
   cout << "How do you want each generation to be outputed?" << endl;
   cout << "1 for pause between generations" << endl;
   cout << "2 for continue on enter press" << endl;
@@ -80,7 +88,6 @@ IO::IO(){
     }
     // }
 
-  }
 
   // if(mode == 1){
   //   //play Classic mode
