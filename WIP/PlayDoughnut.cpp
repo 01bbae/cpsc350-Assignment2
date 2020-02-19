@@ -5,11 +5,10 @@ PlayDoughnut::PlayDoughnut(){
 }
 
 PlayDoughnut::PlayDoughnut(Grid g){
-
+  grid = g;
 }
 
 void PlayDoughnut::play(){
-  grid = g;
 
   for(int i = 0; i < height; i++){
     for(int j = 0; j < width; j++){
