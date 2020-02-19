@@ -16,6 +16,8 @@ public:
   void print();
   void openInFile(string filename);
   void closeInFile();
+  void openOutFile(string filename);
+  void closeOutFile();
 
 private:
   string filename;

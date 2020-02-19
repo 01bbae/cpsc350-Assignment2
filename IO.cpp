@@ -2,7 +2,8 @@
 
 IO::IO(){
   int input;
-  int mode;
+  int mode1;
+  int output;
   cout << "1 to enter a map file" << endl;
   cout << "2 to create a random map" << endl;
   cin >> input;
@@ -54,14 +55,40 @@ IO::IO(){
   cout << "2 for Mirror" << endl;
   cout << "3 for Doughnut" << endl;
   cin >> mode;
-  
-  if(mode == 1){
-    //play Classic mode
-  }else if(mode == 2){
-    //play Mirror
-  }else if(mode == 3){
-    //play Doughnut
+
+  cout << "How do you want each generation to be outputed?" << endl;
+  cout << "1 for pause between generations" << endl;
+  cout << "2 for continue on enter press" << endl;
+  cout << "3 for output to a output file" << endl;
+  cin >> output;
+
+  if(output == 1){ // pause between generation
+    // if(mode == 1){
+    //   //play Classic mode
+    while(/*condition*/){
+
+    }
+    // }else if(mode == 2){
+    //   //play Mirror
+    while(/*condition*/){
+
+    }
+    // }else if(mode == 3){
+    //   //play Doughnut
+    while(/*condition*/){
+
+    }
+    // }
+
   }
+
+  // if(mode == 1){
+  //   //play Classic mode
+  // }else if(mode == 2){
+  //   //play Mirror
+  // }else if(mode == 3){
+  //   //play Doughnut
+  // }
 }
 
 IO::~IO(){
@@ -99,7 +126,17 @@ void IO::openInFile(string filename){
 }
 
 void IO::closeInFile(){
-  if(!ifs.is_open()){
+  if(ifs.is_open()){
     ifs.close();
+  }
+}
+
+void openOutFile(string filename){
+  ofs.open(filename);
+}
+
+void closeOutFile(){
+  if(ofs.is_open()){
+    ofs.close();
   }
 }
