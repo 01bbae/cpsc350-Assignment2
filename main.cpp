@@ -1,5 +1,5 @@
 #include <iostream>
-#include "IO.cpp"
+#include "IO.h"
 
 using namespace std;
 

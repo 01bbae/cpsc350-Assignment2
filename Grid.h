@@ -8,6 +8,7 @@ public:
   Grid();
   Grid(char** grid, int height, int width);
   Grid(int height, int width, double density);
+  Grid(int height, int width);
   ~Grid();
 
   //methods

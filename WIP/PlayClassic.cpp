@@ -119,7 +119,7 @@ PlayClassic::PlayClassic(Grid g){
             }
           }
 
-        }else if(i = height - 1){
+        }else if(i = grid->height - 1){
           //Cells in bottom row
 
           //Bottom left corner

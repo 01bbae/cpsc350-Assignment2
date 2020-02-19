@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <ios>
-#include "Grid.cpp"
+#include "Grid.h"
 
 using namespace std;
 
