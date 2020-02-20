@@ -96,6 +96,8 @@ IO::IO(){
   // }else if(mode == 3){
   //   //play Doughnut
   // }
+
+  //for pause iterate through or use sleep method?
 }
 
 IO::~IO(){
