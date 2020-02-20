@@ -8,15 +8,15 @@ using namespace std;
 class PlayMirror{
 public:
   PlayMirror();
-  PlayMirror(Grid grid);
+  PlayMirror(Grid* grid);
   ~PlayMirror();
 
   void play();
-  Grid getGrid();
+  Grid* getGrid();
 
 private:
   int neighbors;
-  Grid game;
+  Grid* game;
 
 };
 
