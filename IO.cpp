@@ -6,7 +6,7 @@
 
 IO::IO(){
   int input;
-  int mode1;
+  int mode;
   int output;
   cout << "1 to enter a map file" << endl;
   cout << "2 to create a random map" << endl;
@@ -15,10 +15,6 @@ IO::IO(){
   int width;
   int height;
   double density;
-
-  PlayClassic classic;
-  PlayDoughnut doughnut;
-  PlayMirror mirror;
 
   if(input==1){
     cout << "Enter the map file name: " << endl;
@@ -63,12 +59,17 @@ IO::IO(){
   cout << "3 for Doughnut" << endl;
   cin >> mode;
 
-<<<<<<< HEAD
+<<<<<<<< HEAD
   cout << "How do you want each generation to be outputed?" << endl;
   cout << "1 for pause between generations" << endl;
   cout << "2 for continue on enter press" << endl;
   cout << "3 for output to a output file" << endl;
   cin >> output;
+
+
+  PlayClassic classic;
+  PlayDoughnut doughnut;
+  PlayMirror mirror;
 
   if(output == 1){ // pause between generation
     // if(mode == 1){
@@ -98,6 +99,7 @@ IO::IO(){
   // }
 
   //for pause iterate through or use sleep method?
+}
 }
 
 IO::~IO(){

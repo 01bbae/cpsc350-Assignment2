@@ -7,7 +7,11 @@ class PlayGame{
 public:
   Grid getGeneration();
   virtual void play();
-  void checkEndConditions();
+  bool checkEndConditions();
+
+  bool gameOver;
+  int deadCells;
+  Grid game;
 
 protected:
   Grid* grid;

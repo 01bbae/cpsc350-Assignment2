@@ -12,4 +12,6 @@ public:
   void play();
 
   int neighbors;
+  Grid game;
+
 };
