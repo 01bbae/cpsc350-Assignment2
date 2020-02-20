@@ -45,6 +45,9 @@ IO::IO(){
     cin >> density;
     g = new Grid(height, width, density);
     print();
+  }else{
+    cout << "no option entered" << endl;
+    exit(EXIT_FAILURE);
   }
 }
 
@@ -115,22 +118,23 @@ void IO::playGame(){
   cin >> output;
 
   if(mode == 1){
-    PlayClassic* classic = new PlayClassic(g);
+    PlayClassic* classic = new PlayClassic(*g);
     if(output == 1){
       //pause
-      while(!(classic->getGrid())->isEmpty()){
+      while(!(classic->getGrid()).isEmpty()){
+        cout << "reached loop" << endl;
         classic->play();
-        (classic->getGrid())->printGrid();
+        (classic->getGrid()).printGrid();
         for(int i=0;i<10000;++i){
           //pausing
         }
       }
     }else if(output == 2){
       //continue on enter
-      while(!(classic->getGrid())->isEmpty()){
+      while(!(classic->getGrid()).isEmpty()){
         classic->play();
         cin.ignore();
-        (classic->getGrid())->printGrid();
+        (classic->getGrid()).printGrid();
       }
     }else if(output == 3){
       //output to ofs
@@ -139,14 +143,14 @@ void IO::playGame(){
 
 
   }else if(mode == 2){
-    PlayMirror* mirror = new PlayMirror(g);
+    PlayMirror* mirror = new PlayMirror(*g);
 
 
     if(output == 1){
       //pause
-      while(!(mirror->getGrid())->isEmpty()){
+      while(!(mirror->getGrid()).isEmpty()){
         mirror->play();
-        (mirror->getGrid())->printGrid();
+        (mirror->getGrid()).printGrid();
         for(int i=0;i<10000;++i){
           //pausing
         }
@@ -155,10 +159,10 @@ void IO::playGame(){
 
     }else if(output == 2){
       //continue on enter
-      while(!(mirror->getGrid())->isEmpty()){
+      while(!(mirror->getGrid()).isEmpty()){
         mirror->play();
         cin.ignore();
-        (mirror->getGrid())->printGrid();
+        (mirror->getGrid()).printGrid();
       }
 
 
@@ -172,26 +176,26 @@ void IO::playGame(){
 
 
   }else if(mode == 3){
-    PlayDoughnut* doughnut = new PlayDoughnut(g);
+    PlayDoughnut* doughnut = new PlayDoughnut(*g);
 
 
     if(output == 1){
       //pause
-      while(!(doughnut->getGrid())->isEmpty()){
+      while(!(doughnut->getGrid()).isEmpty()){
         doughnut->play();
         for(int i=0;i<10000;++i){
           //pausing
         }
-        (doughnut->getGrid())->printGrid();
+        (doughnut->getGrid()).printGrid();
       }
 
 
     }else if(output == 2){
       //continue on enter
-      while(!(doughnut->getGrid())->isEmpty()){
+      while(!(doughnut->getGrid()).isEmpty()){
         doughnut->play();
         cin.ignore();
-        (doughnut->getGrid())->printGrid();
+        (doughnut->getGrid()).printGrid();
       }
 
     }else if(output == 3){

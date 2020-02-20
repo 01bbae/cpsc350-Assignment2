@@ -8,15 +8,15 @@ using namespace std;
 class PlayDoughnut{
 public:
   PlayDoughnut();
-  PlayDoughnut(Grid* grid);
+  PlayDoughnut(Grid grid);
   ~PlayDoughnut();
 
   void play();
-  Grid* getGrid();
+  Grid getGrid();
 
 private:
   int neighbors;
-  Grid* game;
+  Grid game;
 };
 
 #endif
