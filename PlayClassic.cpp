@@ -5,7 +5,7 @@ PlayClassic::PlayClassic(){
 }
 
 PlayClassic::PlayClassic(Grid g){
-  grid = g;
+  game = g;
 
 }
 
@@ -371,4 +371,8 @@ void PlayClassic::play(){
         }
     }
   }
+}
+
+Grid PlayClassic::getGrid(){
+  return game;
 }

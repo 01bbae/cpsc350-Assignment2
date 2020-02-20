@@ -1,5 +1,7 @@
+#ifndef PLAYDOUGHNUT_H
+#define PLAYDOUGHNUT_H
 #include <iostream>
-#include "PlayGame.h"
+#include "Grid.h"
 
 using namespace std;
 
@@ -10,7 +12,11 @@ public:
   ~PlayDoughnut();
 
   void play();
+  Grid getGrid();
 
+private:
   int neighbors;
   Grid game;
 };
+
+#endif

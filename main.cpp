@@ -8,6 +8,7 @@ int main(int argc, char** argv){
   // g->printGrid();
 
   IO* io = new IO();
+  io->playGame();
 
   return 0;
 }

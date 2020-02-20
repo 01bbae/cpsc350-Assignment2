@@ -5,7 +5,7 @@ PlayMirror::PlayMirror(){
 }
 
 PlayMirror::PlayMirror(Grid g){
-  grid = g;
+  game = g;
 }
 
 void PlayMirror::play(){
@@ -418,4 +418,8 @@ void PlayMirror::play(){
         }
     }
   }
+}
+
+Grid PlayMirror::getGrid(){
+  return game;
 }

@@ -1,7 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <ios>
-//#include "Grid.h"
+#include "PlayClassic.h"
+#include "PlayDoughnut.h"
+#include "PlayMirror.h"
 
 using namespace std;
 
@@ -18,6 +20,7 @@ public:
   void closeInFile();
   void openOutFile(string filename);
   void closeOutFile();
+  void playGame();
 
 private:
   string filename;
@@ -27,7 +30,6 @@ private:
   int width;
   double density;
   Grid* g;
-  char** grid;
 
   ifstream ifs;
   ofstream ofs;

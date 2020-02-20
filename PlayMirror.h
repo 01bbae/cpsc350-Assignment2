@@ -1,5 +1,7 @@
+#ifndef PLAYMIRROR_H
+#define PLAYMIRROR_H
 #include <iostream>
-#include "PlayGame.h"
+#include "Grid.h"
 
 using namespace std;
 
@@ -10,8 +12,12 @@ public:
   ~PlayMirror();
 
   void play();
+  Grid getGrid();
 
+private:
   int neighbors;
   Grid game;
 
 };
+
+#endif

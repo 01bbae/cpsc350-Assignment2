@@ -1,3 +1,5 @@
+#ifndef GRID_H
+#define GRID_H
 #include <iostream>
 #include <cmath>
 
@@ -13,6 +15,7 @@ public:
 
   //methods
   void printGrid();
+  bool isEmpty();
 
 
   //vars
@@ -23,3 +26,5 @@ public:
   char** nextGen;
 
 };
+
+#endif

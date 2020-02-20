@@ -82,7 +82,7 @@ Grid::~Grid(){
 
 void Grid::printGrid(){
   //print generation number
-  cout << "gen: " << 0 << endl;
+  //cout << "gen: " << 0 << endl;
 
   //print grid
   for(int r=0;r<height;++r){
@@ -91,4 +91,19 @@ void Grid::printGrid(){
     }
     cout << endl;
   }
+}
+
+bool Grid::isEmpty(){
+  int count = 0;
+  for(int r=0;r<height;++r){
+    for(int c=0;c<width;++c){
+      if(grid[r][c]=='-'){
+        ++count;
+      }
+    }
+  }
+  if(count==(height*width)){
+    return true;
+  }
+  return false;
 }

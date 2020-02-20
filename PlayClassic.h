@@ -1,5 +1,6 @@
+#ifndef PLAYCLASSIC_H
+#define PLAYCLASSIC_H
 #include <iostream>
-#include "PlayGame.h"
 #include "Grid.h"
 
 using namespace std;
@@ -11,7 +12,11 @@ public:
   ~PlayClassic();
 
   void play();
+  Grid getGrid();
 
+private:
   int neighbors;
   Grid game;
 };
+
+#endif

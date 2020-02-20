@@ -535,3 +535,7 @@ void PlayDoughnut::play(){
     }
   }
 }
+
+Grid PlayDoughnut::getGrid(){
+  return game;
+}

@@ -1,13 +1,7 @@
 #include "IO.h"
-#include "PlayClassic.h"
-#include "PlayDoughnut.h"
-#include "PlayMirror.h"
-#include "Grid.h"
 
 IO::IO(){
   int input;
-  int mode;
-  int output;
   cout << "1 to enter a map file" << endl;
   cout << "2 to create a random map" << endl;
   cin >> input;
@@ -26,7 +20,7 @@ IO::IO(){
     ifs >> height;
     ifs >> width;
 
-
+    char** grid;
     grid = new char*[height];
     for(int i = 0; i < height; ++i) {
       grid[i] = new char[width];
@@ -52,54 +46,6 @@ IO::IO(){
     g = new Grid(height, width, density);
     print();
   }
-
-  cout << "What mode do you want to run in?" << endl;
-  cout << "1 for Classic" << endl;
-  cout << "2 for Mirror" << endl;
-  cout << "3 for Doughnut" << endl;
-  cin >> mode;
-
-<<<<<<<< HEAD
-  cout << "How do you want each generation to be outputed?" << endl;
-  cout << "1 for pause between generations" << endl;
-  cout << "2 for continue on enter press" << endl;
-  cout << "3 for output to a output file" << endl;
-  cin >> output;
-
-
-  PlayClassic classic;
-  PlayDoughnut doughnut;
-  PlayMirror mirror;
-
-  if(output == 1){ // pause between generation
-    // if(mode == 1){
-    //   //play Classic mode
-    while(/*condition*/){
-
-    }
-    // }else if(mode == 2){
-    //   //play Mirror
-    while(/*condition*/){
-
-    }
-    // }else if(mode == 3){
-    //   //play Doughnut
-    while(/*condition*/){
-
-    }
-    // }
-
-
-  // if(mode == 1){
-  //   //play Classic mode
-  // }else if(mode == 2){
-  //   //play Mirror
-  // }else if(mode == 3){
-  //   //play Doughnut
-  // }
-
-  //for pause iterate through or use sleep method?
-}
 }
 
 IO::~IO(){
@@ -142,12 +88,114 @@ void IO::closeInFile(){
   }
 }
 
-void openOutFile(string filename){
+void IO::openOutFile(string filename){
   ofs.open(filename);
 }
 
-void closeOutFile(){
+void IO::closeOutFile(){
   if(ofs.is_open()){
     ofs.close();
+  }
+}
+
+void IO::playGame(){
+  int mode;
+  int output;
+  cout << "What mode do you want to run in?" << endl;
+  cout << "1 for Classic" << endl;
+  cout << "2 for Mirror" << endl;
+  cout << "3 for Doughnut" << endl;
+  cin >> mode;
+
+
+  cout << "How do you want each generation to be outputed?" << endl;
+  cout << "1 for pause between generations" << endl;
+  cout << "2 for continue on enter press" << endl;
+  cout << "3 for output to a output file" << endl;
+  cin >> output;
+
+  if(mode == 1){
+    PlayClassic* classic = new PlayClassic();
+    if(output == 1){
+      //pause
+      while(!(classic->getGrid()).isEmpty()){
+        classic->play();
+        (classic->getGrid()).printGrid();
+        for(int i=0;i<10000;++i){
+          //pausing
+        }
+      }
+    }else if(output == 2){
+      //continue on enter
+      while(!(classic->getGrid()).isEmpty()){
+        classic->play();
+        cin.ignore();
+        (classic->getGrid()).printGrid();
+      }
+    }else if(output == 3){
+      //output to ofs
+      openOutFile("test.txt");
+    }
+
+
+  }else if(mode == 2){
+    PlayMirror* mirror = new PlayMirror();
+
+
+    if(output == 1){
+      //pause
+      while(!(mirror->getGrid()).isEmpty()){
+        mirror->play();
+        (mirror->getGrid()).printGrid();
+        for(int i=0;i<10000;++i){
+          //pausing
+        }
+      }
+
+
+    }else if(output == 2){
+      //continue on enter
+      while(!(mirror->getGrid()).isEmpty()){
+        mirror->play();
+        cin.ignore();
+        (mirror->getGrid()).printGrid();
+      }
+
+
+    }else if(output == 3){
+      //output to ofs
+      openOutFile("test.txt");
+    }
+
+
+
+
+
+  }else if(mode == 3){
+    PlayDoughnut* doughnut = new PlayDoughnut();
+
+
+    if(output == 1){
+      //pause
+      while(!(doughnut->getGrid()).isEmpty()){
+        doughnut->play();
+        for(int i=0;i<10000;++i){
+          //pausing
+        }
+      }
+
+
+    }else if(output == 2){
+      //continue on enter
+      while(!(doughnut->getGrid()).isEmpty()){
+        doughnut->play();
+        cin.ignore();
+        (doughnut->getGrid()).printGrid();
+      }
+
+    }else if(output == 3){
+      //output to ofs
+      openOutFile("test.txt");
+    }
   }
 }
