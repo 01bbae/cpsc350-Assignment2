@@ -4,18 +4,19 @@ using namespace std;
 class Grid{
 public:
   Grid();
+  Grid(char ar[][],int height, int width);
   Grid(int height, int width, int density);
   ~Grid();
 
   //methods
   void printGrid();
-
+  void printGeneration();
 
 
   //vars
-  // char* rows;
-  // char* cols;
-  int rows;
-  int cols;
+  int height;
+  int width;
+  char* rows;
+  char* cols;
 
 };
