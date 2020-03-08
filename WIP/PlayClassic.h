@@ -10,4 +10,6 @@ public:
   ~PlayClassic();
 
   void play();
+
+  int neighbors;
 }
