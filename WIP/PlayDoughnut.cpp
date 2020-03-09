@@ -107,7 +107,12 @@ PlayDoughnut::PlayDoughnut(Grid g){
             }
 
             //Checking if bottom right corner cell is occupied, which is a neighbor
-            if(grid[height - 1][width - 1] = 'X'){
+            if(grid[height - 1][j] = 'X'){
+              neighbors += 1;
+            }
+
+            //Checking if the cell to the left of the bottom right corner is occupied, which is a neighbor
+            if(grid[height - 1][j - 1] = 'X'){
               neighbors += 1;
             }
 
@@ -153,6 +158,19 @@ PlayDoughnut::PlayDoughnut(Grid g){
               neighbors += 1;
             }
 
+            //Checking cells on bottom edge which are neighbors
+            if(grid[height - 1][j] = 'X'){
+              neighbors += 1;
+            }
+
+            if(grid[height - 1][j-1] = 'X'){
+              neighbors += 1;
+            }
+
+            if(grid[height - 1][j+1] = 'X'){
+              neighbors += 1;
+            }
+
             //Determing next generation
             if(neighbors <= 1){
               nextgen[i][j] = '-';
@@ -185,12 +203,37 @@ PlayDoughnut::PlayDoughnut(Grid g){
               neighbors += 1;
             }
 
-            //Checking for neighbor in upper right diagonal cell
+            //Checking for neighbor in upper right diagonal cell of target cell
             if(grid[i-1][j+1] = 'X'){
               neighbors += 1;
             }
 
-            //Corner cell can have at most three neighbors
+            //Checking cell in bottom right corner, which is a neighbor
+            if(grid[i][width - 1] = 'X'){
+              neighbors += 1;
+            }
+
+            //Checking cell above the bottom right corner, which is a neighbor
+            if(grid[i - 1][width - 1] = 'X'){
+              neighbors += 1;
+            }
+
+            //Checking cell in top right corner, which is a neighbor
+            if(grid[0][width - 1] = 'X'){
+              neighbors += 1;
+            }
+
+            //Checking for cell in top left corner, which is a neighbor
+            if(grid[0][0] = 'X'){
+              neighbors += 1;
+            }
+
+            //Checking for neighbor in the cell to the right of the top left corner, which is a neighbor
+            if(grid[0][1] = 'X'){
+              neighbors += 1;
+            }
+
+            //Determing next generation
             if(neighbors <= 1){
               nextgen[i][j] = '-';
             }else if(neighbors = 2){
@@ -199,10 +242,14 @@ PlayDoughnut::PlayDoughnut(Grid g){
               }else{
                 nextgen[i][j] = 'X';
               }
-            }else{
+            }else if(neighbors = 3){
               nextgen[i][j] = 'X';
+            }else{
+              nextgen[i][j] = '-';
             }
           }else if(j = width - 1){
+            //Bottom right corner
+
             //Checking for neighbor in cell above
             if(grid[i-1][j] = 'X'){
               neighbors += 1;
@@ -213,12 +260,37 @@ PlayDoughnut::PlayDoughnut(Grid g){
               neighbors += 1;
             }
 
-            //Checking for neighbor in upper left diagonal cell
+            //Checking for neighbor in upper left diagonal cell of target cell
             if(grid[i-1][j-1] = 'X'){
               neighbors += 1;
             }
 
-            //Corner cell can have at most three neighbors
+            //Checking for cell in top right corner, which is a neighbor
+            if(grid[0][j] = 'X'){
+              neighbors += 1
+            }
+
+            //Checking for to the left of the top right corner, which is a neighbor
+            if(grid[0][j-1] = 'X'){
+              neighbors += 1;
+            }
+
+            //Checking for cell in top left corner, which is a neighbor
+            if(grid[0][0] = 'X'){
+              neighbors += 1;
+            }
+
+            //Checking for cell in bottom left corner, which is a neighbor
+            if(grid[j][0] = 'X'){
+              neighbors += 1;
+            }
+
+            //Checking for cell directly above the bottom left corner, which is a neighbors
+            if(grid[i - 1][0] = 'X'){
+              neighbors += 1;
+            }
+
+            //Determing next generation
             if(neighbors <= 1){
               nextgen[i][j] = '-';
             }else if(neighbors = 2){
@@ -227,8 +299,10 @@ PlayDoughnut::PlayDoughnut(Grid g){
               }else{
                 nextgen[i][j] = 'X';
               }
-            }else{
+            }else if(neighbors = 3){
               nextgen[i][j] = 'X';
+            }else{
+              nextgen[i][j] = '-';
             }
           }else{
             //Bottom row other than corners
@@ -255,6 +329,19 @@ PlayDoughnut::PlayDoughnut(Grid g){
 
             //Checking cell to the upper right diagonal
             if(grid[i-1][j+1] = 'X'){
+              neighbors += 1;
+            }
+
+            //Checking cells on top edge which are neighbors
+            if(grid[0][j] = 'X'){
+              neighbors += 1;
+            }
+
+            if(grid[0][j-1] = 'X'){
+              neighbors += 1;
+            }
+
+            if(grid[0][j+1] = 'X'){
               neighbors += 1;
             }
 
@@ -301,6 +388,19 @@ PlayDoughnut::PlayDoughnut(Grid g){
             neighbors += 1;
           }
 
+          //Checking cells on the right edge, which are neighbors
+          if(grid[i][width - 1] = 'X'){
+            neighbors += 1;
+          }
+
+          if(grid[i-1][width - 1] = 'X'){
+            neighbors += 1;
+          }
+
+          if(grid[i+1][width - 1] = 'X'){
+            neighbors += 1;
+          }
+
           //Determing next generation
           if(neighbors <= 1){
             nextgen[i][j] = '-';
@@ -340,6 +440,19 @@ PlayDoughnut::PlayDoughnut(Grid g){
 
           //Checking cell to the left lower diagonal
           if(grid[i+1][j-1] = 'X'){
+            neighbors += 1;
+          }
+
+          //Checking cells on left edge, which are neighbors
+          if(grid[0][j] = 'X'){
+            neighbors += 1;
+          }
+
+          if(grid[0][j-1] = 'X'){
+            neighbors += 1;
+          }
+
+          if(grid[0][j+1] = 'X'){
             neighbors += 1;
           }
 
