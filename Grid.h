@@ -13,7 +13,6 @@ public:
 
   //methods
   void printGrid();
-  //void printGeneration(); //nessasary?
 
 
   //vars
