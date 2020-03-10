@@ -13,6 +13,6 @@ public:
   void play();
 
   int neighbors;
-  grid gameGrid;
-  grid nextGen;
+  Grid gameGrid;
+  Grid nextGen;
 }
