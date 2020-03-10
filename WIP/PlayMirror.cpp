@@ -4,12 +4,11 @@ PlayMirror::PlayMirror(){
   //default constructor
 }
 
-
-//We could make this method a lot shorter by creating another method that makes the next generation grid and checks the neighbor cases, and call that wherever i have the checks in place for creating the next grid generation
 PlayMirror::PlayMirror(Grid g){
   grid = g;
+}
 
-
+void PlayMirror::play(){
   for(int i = 0; i < height; i++){
     for(int j = 0; j < width; j++){
       neighbors = 0;
@@ -419,12 +418,4 @@ PlayMirror::PlayMirror(Grid g){
         }
     }
   }
-}
-
-void PlayMirror::NextGeneration(){
-  
-}
-
-void PlayMirror::play(){
-
 }
