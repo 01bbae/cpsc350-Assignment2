@@ -11,9 +11,8 @@ PlayDoughnut::PlayDoughnut(Grid g){
 
 void PlayDoughnut::play(){
 
-
-  for(int i = 0; i < height; i++){
-    for(int j = 0; j < width; j++){
+  for(int i = 0; i < gameGrid.height; i++){
+    for(int j = 0; j < gameGrid.width; j++){
       neighbors = 0;
 
         //Cells in top row

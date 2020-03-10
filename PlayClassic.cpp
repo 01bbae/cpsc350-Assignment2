@@ -10,8 +10,9 @@ PlayClassic::PlayClassic(Grid g){
 }
 
 void PlayClassic::play(){
-  for(int i = 0; i < height; i++){
-    for(int j = 0; j < width; j++){
+
+  for(int i = 0; i < gameGrid.height; i++){
+    for(int j = 0; j < gameGrid.width; j++){
       neighbors = 0;
 
         //Cells in top row
@@ -37,15 +38,15 @@ void PlayClassic::play(){
 
             //Corner cell can have at most three neighbors
             if(neighbors <= 1){
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }else if(neighors = 2){
               if(grid[i][j] = '-'){
-                nextgen[i][j] = '-';
+                nextGen[i][j] = '-';
               }else{
-                nextgen[i][j] = 'X';
+                nextGen[i][j] = 'X';
               }
             }else{
-              nextgen[i][j] = 'X';
+              nextGen[i][j] = 'X';
             }
           }else if(j = width - 1){
             //Top right corner
@@ -68,15 +69,15 @@ void PlayClassic::play(){
             //Corner cell can have at most three neighbors
             //Determining next generation
             if(neighbors <= 1){
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }else if(neighbors = 2){
               if(grid[i][j] = '-'){
-                nextgen[i][j] = '-';
+                nextGen[i][j] = '-';
               }else{
-                nextgen[i][j] = 'X';
+                nextGen[i][j] = 'X';
               }
             }else{
-              nextgen[i][j] = 'X';
+              nextGen[i][j] = 'X';
             }
           }else{
             //Top row other than corners
@@ -108,17 +109,17 @@ void PlayClassic::play(){
 
             //Determing next generation
             if(neighbors <= 1){
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }else if(neighbors = 2){
               if(grid[i][j] = '-'){
-                nextgen[i][j] = '-';
+                nextGen[i][j] = '-';
               }else{
-                nextgen[i][j] = 'X';
+                nextGen[i][j] = 'X';
               }
             }else if(neighbors = 3){
-              nextgen[i][j] = 'X';
+              nextGen[i][j] = 'X';
             }else{
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }
           }
 
@@ -145,15 +146,15 @@ void PlayClassic::play(){
 
             //Corner cell can have at most three neighbors
             if(neighbors <= 1){
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }else if(neighbors = 2){
               if(grid[i][j] = '-'){
-                nextgen[i][j] = '-';
+                nextGen[i][j] = '-';
               }else{
-                nextgen[i][j] = 'X';
+                nextGen[i][j] = 'X';
               }
             }else{
-              nextgen[i][j] = 'X';
+              nextGen[i][j] = 'X';
             }
           }else if(j = width - 1){
             //Checking for neighbor in cell above
@@ -173,15 +174,15 @@ void PlayClassic::play(){
 
             //Corner cell can have at most three neighbors
             if(neighbors <= 1){
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }else if(neighbors = 2){
               if(grid[i][j] = '-'){
-                nextgen[i][j] = '-';
+                nextGen[i][j] = '-';
               }else{
-                nextgen[i][j] = 'X';
+                nextGen[i][j] = 'X';
               }
             }else{
-              nextgen[i][j] = 'X';
+              nextGen[i][j] = 'X';
             }
           }else{
             //Bottom row other than corners
@@ -213,17 +214,17 @@ void PlayClassic::play(){
 
             //Determing next generation
             if(neighbors <= 1){
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }else if(neighbors = 2){
               if(grid[i][j] = '-'){
-                nextgen[i][j] = '-';
+                nextGen[i][j] = '-';
               }else{
-                nextgen[i][j] = 'X';
+                nextGen[i][j] = 'X';
               }
             }else if(neighbors = 3){
-              nextgen[i][j] = 'X';
+              nextGen[i][j] = 'X';
             }else{
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }
           }
         }else if(j = 0 && 0 < i < height){
@@ -256,17 +257,17 @@ void PlayClassic::play(){
 
           //Determing next generation
           if(neighbors <= 1){
-            nextgen[i][j] = '-';
+            nextGen[i][j] = '-';
           }else if(neighbors = 2){
             if(grid[i][j] = '-'){
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }else{
-              nextgen[i][j] = 'X';
+              nextGen[i][j] = 'X';
             }
           }else if(neighbors = 3){
-            nextgen[i][j] = 'X';
+            nextGen[i][j] = 'X';
           }else{
-            nextgen[i][j] = '-';
+            nextGen[i][j] = '-';
           }
         }else if(j = width - 1 && 0 < i < height){
           //Cells on right edge (corners already accounted for in top and bottom row situations)
@@ -298,17 +299,17 @@ void PlayClassic::play(){
 
           //Determing next generation
           if(neighbors <= 1){
-            nextgen[i][j] = '-';
+            nextGen[i][j] = '-';
           }else if(neighbors = 2){
             if(grid[i][j] = '-'){
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }else{
-              nextgen[i][j] = 'X';
+              nextGen[i][j] = 'X';
             }
           }else if(neighbors = 3){
-            nextgen[i][j] = 'X';
+            nextGen[i][j] = 'X';
           }else{
-            nextgen[i][j] = '-';
+            nextGen[i][j] = '-';
           }
         }else{
           //All interior Cells
@@ -355,17 +356,17 @@ void PlayClassic::play(){
 
             //Determing next generation
             if(neighbors <= 1){
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }else if(neighbors = 2){
               if(grid[i][j] = '-'){
-                nextgen[i][j] = '-';
+                nextGen[i][j] = '-';
               }else{
-                nextgen[i][j] = 'X';
+                nextGen[i][j] = 'X';
               }
             }else if(neighbors = 3){
-              nextgen[i][j] = 'X';
+              nextGen[i][j] = 'X';
             }else{
-              nextgen[i][j] = '-';
+              nextGen[i][j] = '-';
             }
         }
     }

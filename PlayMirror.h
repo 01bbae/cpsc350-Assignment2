@@ -13,5 +13,5 @@ public:
 
   int neighbors;
   Grid gameGrid;
-  Grid nextGen;
+
 };
