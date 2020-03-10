@@ -1,4 +1,5 @@
 #include "PlayDoughnut.h"
+#include "Grid.h"
 
 PlayDoughnut::PlayDoughnut(){
   //default constructor
@@ -9,6 +10,7 @@ PlayDoughnut::PlayDoughnut(Grid g){
 }
 
 void PlayDoughnut::play(){
+
 
   for(int i = 0; i < height; i++){
     for(int j = 0; j < width; j++){
