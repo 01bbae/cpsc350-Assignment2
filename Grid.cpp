@@ -30,6 +30,7 @@ Grid::Grid(int height, int width, double density){
     grid[i] = new char[width];
   }
 
+  //Initializing an unpopulated grid
   for(int r=0;r<height;++r){
     for(int c=0;c<width;++c){
       grid[r][c]='-';
@@ -55,16 +56,6 @@ Grid::Grid(int height, int width, double density){
     }
   }
 
-  // for(int r=0;r<height;++r){
-  //   for(int c=0;c<width;++c){
-  //     if(rand()%100<=density*100){ //fix
-  //       grid[r][c]='X';
-  //       density--;
-  //     }else{
-  //       grid[r][c]='-';
-  //     }
-  //   }
-  // }
 
 }
 
@@ -76,12 +67,17 @@ Grid::Grid(int height, int width){
     grid[i] = new char[width];
   }
 
+  //Initalizing an unpopulated array
   for(int r=0;r<height;++r){
     for(int c=0;c<width;++c){
       grid[r][c]='-';
     }
   }
 
+}
+
+Grid::~Grid(){
+  //Do we need to delete something here?
 }
 
 void Grid::printGrid(){
