@@ -6,7 +6,7 @@
 
 IO::IO(){
   int input;
-  int mode1;
+  int mode;
   int output;
   cout << "1 to enter a map file" << endl;
   cout << "2 to create a random map" << endl;
@@ -97,6 +97,7 @@ IO::IO(){
   // }else if(mode == 3){
   //   //play Doughnut
   // }
+}
 }
 
 IO::~IO(){

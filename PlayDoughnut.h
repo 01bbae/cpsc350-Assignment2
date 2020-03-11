@@ -12,5 +12,5 @@ public:
   void play();
 
   int neighbors;
-  Grid gameGrid;
+  Grid game;
 };

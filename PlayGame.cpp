@@ -13,16 +13,16 @@ Grid PlayGame::getGeneration(){
   return grid;
 }
 
-bool PlayGame::checkDeadSimulationrminal(){
+bool PlayGame::checkEndConditions(){
 
   gameOver = false;
   deadCells = 0;
 
     if(!gameOver){
-      for(int i = 0; i < height; i++){
-        for(int j = 0; j < width; j++){
+      for(int i = 0; i < game.height; i++){
+        for(int j = 0; j < game.width; j++){
 
-          if(grid[i][j] == '-'){
+          if(game.grid[i][j] == '-'){
             deadCells += 1;
           }
 
@@ -30,7 +30,7 @@ bool PlayGame::checkDeadSimulationrminal(){
           }
         }
 
-        if(deadCells == height * width){
+        if(deadCells == game.height * game.width){
           gameOver = true;
       }
     }
