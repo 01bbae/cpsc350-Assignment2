@@ -1,4 +1,7 @@
 #include "IO.h"
+#include "PlayClassic.h"
+#include "PlayMirror.h"
+#include "PlayDoughnut.h"
 
 IO::IO(){
   int input;
