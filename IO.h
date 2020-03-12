@@ -18,6 +18,7 @@ public:
   void closeInFile();
   void openOutFile(string filename);
   void closeOutFile();
+  void playGame();
 
 private:
   string filename;

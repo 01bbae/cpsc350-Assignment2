@@ -118,7 +118,7 @@ void IO::playGame(){
   cin >> output;
 
   if(mode == 1){
-    PlayClassic* classic = new PlayClassic(*g);
+    PlayClassic* classic = new PlayClassic(g);
     if(output == 1){
       //pause
       while(!(classic->getGrid()).isEmpty()){
@@ -143,7 +143,7 @@ void IO::playGame(){
 
 
   }else if(mode == 2){
-    PlayMirror* mirror = new PlayMirror(*g);
+    PlayMirror* mirror = new PlayMirror(g);
 
 
     if(output == 1){
@@ -176,7 +176,7 @@ void IO::playGame(){
 
 
   }else if(mode == 3){
-    PlayDoughnut* doughnut = new PlayDoughnut(*g);
+    PlayDoughnut* doughnut = new PlayDoughnut(g);
 
 
     if(output == 1){

@@ -8,7 +8,7 @@ using namespace std;
 class PlayDoughnut{
 public:
   PlayDoughnut();
-  PlayDoughnut(Grid grid);
+  PlayDoughnut(Grid* grid);
   ~PlayDoughnut();
 
   void play();
@@ -16,7 +16,8 @@ public:
 
 private:
   int neighbors;
-  Grid game;
+  Grid* game;
+  Grid* nextGen;
 };
 
 #endif

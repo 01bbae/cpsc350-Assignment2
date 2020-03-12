@@ -8,7 +8,7 @@ using namespace std;
 class PlayMirror{
 public:
   PlayMirror();
-  PlayMirror(Grid grid);
+  PlayMirror(Grid* grid);
   ~PlayMirror();
 
   void play();
@@ -16,7 +16,8 @@ public:
 
 private:
   int neighbors;
-  Grid game;
+  Grid* game;
+  Grid* nextGen;
 
 };
 

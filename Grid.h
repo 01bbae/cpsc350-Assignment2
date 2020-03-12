@@ -23,7 +23,6 @@ public:
   int width;
   double density;
   char** grid;
-  char** nextGen;
 
 };
 
