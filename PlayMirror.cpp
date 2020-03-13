@@ -9,6 +9,11 @@ PlayMirror::PlayMirror(Grid* g){
   nextGen = new Grid(g->height,g->width);
 }
 
+PlayMirror::~PlayMirror(){
+  delete game;
+  delete nextGen;
+}
+
 void PlayMirror::play(){
   for(int i = 0; i < game->height; i++){
     for(int j = 0; j < game->width; j++){

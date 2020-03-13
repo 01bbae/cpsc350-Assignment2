@@ -1,7 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <ios>
-#include "Grid.h"
+#include <thread>
+#include <chrono>
+#include "PlayClassic.h"
+#include "PlayMirror.h"
+#include "PlayDoughnut.h"
 
 using namespace std;
 

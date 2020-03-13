@@ -1,7 +1,4 @@
 #include "IO.h"
-#include "PlayClassic.h"
-#include "PlayMirror.h"
-#include "PlayDoughnut.h"
 
 IO::IO(){
   int input;
@@ -23,18 +20,17 @@ IO::IO(){
     ifs >> height;
     ifs >> width;
 
-    char** grid;
-    grid = new char*[height];
+    char** grid = new char*[height];
     for(int i = 0; i < height; ++i) {
       grid[i] = new char[width];
     }
     string buffer;
+    int i=0;
     while(ifs >> buffer){
-      int i=0;
       for(int j=0;j<buffer.size();++j){
-        grid[i][j] = buffer[i];
-        ++i;
+        grid[i][j] = buffer[j];
       }
+      ++i;
     }
     g = new Grid(grid,height,width);
     print();
@@ -56,6 +52,9 @@ IO::IO(){
 
 IO::~IO(){
   //delete objects
+  delete grid;
+  delete g;
+
 }
 
 //getter methods
@@ -105,8 +104,10 @@ void IO::closeOutFile(){
 }
 
 void IO::playGame(){
+  int generation = 0;
   int mode;
   int output;
+  int max;
   cout << "What mode do you want to run in?" << endl;
   cout << "1 for Classic" << endl;
   cout << "2 for Mirror" << endl;
@@ -119,91 +120,138 @@ void IO::playGame(){
   cout << "2 for continue on enter press" << endl;
   cout << "3 for output to a output file" << endl;
   cin >> output;
+  if(output == 3){
+    cout << "Enter maximum number of generations" <<endl;
+    cin >> max;
+  }
 
   if(mode == 1){
     PlayClassic* classic = new PlayClassic(g);
     if(output == 1){
       //pause
-      while(!(classic->getGrid()).isEmpty()){
-        cout << "reached loop" << endl;
+      while((!(classic->getGrid()).isEmpty())){
         classic->play();
+        cout << "generation: " << generation <<endl;
         (classic->getGrid()).printGrid();
-        for(int i=0;i<10000;++i){
-          //pausing
-        }
+        cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<"<< endl;
+        generation++;
+        this_thread::sleep_for (chrono::seconds(1));
       }
     }else if(output == 2){
       //continue on enter
       while(!(classic->getGrid()).isEmpty()){
         classic->play();
-        cin.ignore();
+        cin.get();
+        cout << "generation: " << generation <<endl;
         (classic->getGrid()).printGrid();
+        cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<"<< endl;
+        generation++;
       }
     }else if(output == 3){
       //output to ofs
-      openOutFile("test.txt");
+      openOutFile("output.txt");
+      while(generation<=max){
+        if(!ofs.is_open()){
+          cout << "ofstream not open" << endl;
+          exit(EXIT_FAILURE);
+        }
+        ofs << "generation: " << generation << endl;
+        for(int i = 0; i<classic->getGrid().height;++i){
+          for(int j = 0; j<classic->getGrid().width;++j){
+            ofs << *((*((classic->getGrid()).grid+i))+j) << " ";
+          }
+          ofs << endl;
+        }
+        ofs <<  "<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
+        generation++;
+        classic->play();
+      }
     }
-
+    delete classic;
 
   }else if(mode == 2){
     PlayMirror* mirror = new PlayMirror(g);
-
-
     if(output == 1){
       //pause
       while(!(mirror->getGrid()).isEmpty()){
         mirror->play();
+        cout << "generation: " << generation <<endl;
         (mirror->getGrid()).printGrid();
-        for(int i=0;i<10000;++i){
-          //pausing
-        }
+        cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<"<< endl;
+        generation++;
+        this_thread::sleep_for (chrono::seconds(3));
       }
-
-
     }else if(output == 2){
       //continue on enter
       while(!(mirror->getGrid()).isEmpty()){
         mirror->play();
-        cin.ignore();
+        cin.get();
+        cout << "generation: " << generation <<endl;
         (mirror->getGrid()).printGrid();
       }
-
-
     }else if(output == 3){
       //output to ofs
-      openOutFile("test.txt");
+      openOutFile("output.txt");
+      while(generation<=max){
+        if(!ofs.is_open()){
+          cout << "ofstream not open" << endl;
+          exit(EXIT_FAILURE);
+        }
+        ofs << "generation: " << generation << endl;
+        for(int i = 0; i<mirror->getGrid().height;++i){
+          for(int j = 0; j<mirror->getGrid().width;++j){
+            ofs << *((*((mirror->getGrid()).grid+i))+j) << " ";
+          }
+          ofs << endl;
+        }
+        ofs <<  "<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
+        generation++;
+        mirror->play();
     }
-
-
-
-
+    delete mirror;
 
   }else if(mode == 3){
     PlayDoughnut* doughnut = new PlayDoughnut(g);
-
-
     if(output == 1){
       //pause
       while(!(doughnut->getGrid()).isEmpty()){
         doughnut->play();
-        for(int i=0;i<10000;++i){
-          //pausing
-        }
+        cout << "generation: " << generation <<endl;
         (doughnut->getGrid()).printGrid();
+        cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<"<< endl;
+        generation++;
+        this_thread::sleep_for (chrono::seconds(3));
       }
-
-
     }else if(output == 2){
       //continue on enter
       while(!(doughnut->getGrid()).isEmpty()){
         doughnut->play();
-        cin.ignore();
+        cin.get();
+        cout << "generation: " << generation <<endl;
         (doughnut->getGrid()).printGrid();
       }
-
     }else if(output == 3){
       //output to ofs
-      openOutFile("test.txt");
+      openOutFile("output.txt");
+      while(generation<=max){
+        if(!ofs.is_open()){
+          cout << "ofstream not open" << endl;
+          exit(EXIT_FAILURE);
+        }
+        ofs << "generation: " << generation << endl;
+        for(int i = 0; i<doughnut->getGrid().height;++i){
+          for(int j = 0; j<doughnut->getGrid().width;++j){
+            ofs << *((*((doughnut->getGrid()).grid+i))+j) << " ";
+          }
+          ofs << endl;
+        }
+        ofs <<  "<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
+        generation++;
+        doughnut->play();
+      }
     }
+    delete doughnut;
   }
+}
+
 }

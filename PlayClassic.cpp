@@ -10,12 +10,14 @@ PlayClassic::PlayClassic(Grid* g){
 
 }
 
+PlayClassic::~PlayClassic(){
+  delete game;
+  delete nextGen;
+}
+
 void PlayClassic::play(){
-  cout << "reached play" << endl;
   for(int i = 0; i < game->height; i++){
     for(int j = 0; j < game->width; j++){
-      cout << "reached for" << endl;
-      game->printGrid();
       neighbors = 0;
 
         //Cells in top row
@@ -38,7 +40,6 @@ void PlayClassic::play(){
             if(game->grid[i+1][j+1] == 'X'){
               neighbors += 1;
             }
-            cout << "reached corner" << endl;
             //Corner cell can have at most three neighbors
             if(neighbors <= 1){
               nextGen->grid[i][j] = '-';
@@ -374,7 +375,7 @@ void PlayClassic::play(){
         }
     }
   }
-  game = nextGen;
+  *game = *nextGen;
 }
 
 Grid PlayClassic::getGrid(){

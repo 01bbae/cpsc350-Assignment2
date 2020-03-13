@@ -77,7 +77,8 @@ Grid::Grid(int height, int width){
 }
 
 Grid::~Grid(){
-  //Do we need to delete something here?
+  //delete grid;
+
 }
 
 void Grid::printGrid(){

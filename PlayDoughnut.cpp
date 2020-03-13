@@ -10,6 +10,11 @@ PlayDoughnut::PlayDoughnut(Grid* g){
   nextGen = new Grid(g->height,g->width);
 }
 
+PlayDoughnut::~PlayDoughnut(){
+  delete game;
+  delete nextGen;
+}
+
 void PlayDoughnut::play(){
 
   for(int i = 0; i < game->height; i++){
