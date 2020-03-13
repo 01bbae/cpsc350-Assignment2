@@ -540,6 +540,7 @@ void PlayDoughnut::play(){
         }
     }
   }
+  *game = *nextGen;
 }
 
 Grid PlayDoughnut::getGrid(){

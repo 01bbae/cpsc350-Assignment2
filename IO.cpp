@@ -188,6 +188,8 @@ void IO::playGame(){
         cin.get();
         cout << "generation: " << generation <<endl;
         (mirror->getGrid()).printGrid();
+        cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<"<< endl;
+        generation++;
       }
     }else if(output == 3){
       //output to ofs
@@ -210,6 +212,7 @@ void IO::playGame(){
     }
     delete mirror;
 
+    }
   }else if(mode == 3){
     PlayDoughnut* doughnut = new PlayDoughnut(g);
     if(output == 1){
@@ -229,6 +232,8 @@ void IO::playGame(){
         cin.get();
         cout << "generation: " << generation <<endl;
         (doughnut->getGrid()).printGrid();
+        cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<"<< endl;
+        generation++;
       }
     }else if(output == 3){
       //output to ofs
@@ -252,6 +257,4 @@ void IO::playGame(){
     }
     delete doughnut;
   }
-}
-
 }

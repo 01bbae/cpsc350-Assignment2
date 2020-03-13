@@ -45,6 +45,7 @@ void PlayMirror::play(){
               neighbors += 3;
             }
 
+            cout << neighbors << endl;
             //Determining next generation
             if(neighbors <= 1){
               nextGen->grid[i][j] = '-';
@@ -424,6 +425,7 @@ void PlayMirror::play(){
         }
     }
   }
+  *game = *nextGen;
 }
 
 Grid PlayMirror::getGrid(){
