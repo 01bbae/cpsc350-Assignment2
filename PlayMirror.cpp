@@ -424,6 +424,7 @@ void PlayMirror::play(){
         }
     }
   }
+  *game = *nextGen;
 }
 
 Grid PlayMirror::getGrid(){

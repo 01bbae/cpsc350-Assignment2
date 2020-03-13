@@ -150,11 +150,11 @@ void IO::playGame(){
     }else if(output == 3){
       //output to ofs
       openOutFile("output.txt");
+      if(!ofs.is_open()){
+        cout << "ofstream not open" << endl;
+        exit(EXIT_FAILURE);
+      }
       while(generation<=max){
-        if(!ofs.is_open()){
-          cout << "ofstream not open" << endl;
-          exit(EXIT_FAILURE);
-        }
         ofs << "generation: " << generation << endl;
         for(int i = 0; i<classic->getGrid().height;++i){
           for(int j = 0; j<classic->getGrid().width;++j){
@@ -166,6 +166,9 @@ void IO::playGame(){
         generation++;
         classic->play();
       }
+    }else{
+      cout << "output method undefined or not an option" << endl;
+      exit(EXIT_FAILURE);
     }
     delete classic;
 
@@ -207,11 +210,12 @@ void IO::playGame(){
         ofs <<  "<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
         generation++;
         mirror->play();
+      }
+      delete mirror;
     }
-    delete mirror;
-
   }else if(mode == 3){
     PlayDoughnut* doughnut = new PlayDoughnut(g);
+    cout << "doughnut" << endl;
     if(output == 1){
       //pause
       while(!(doughnut->getGrid()).isEmpty()){
@@ -233,6 +237,7 @@ void IO::playGame(){
     }else if(output == 3){
       //output to ofs
       openOutFile("output.txt");
+      ofs << "mirror mode" << endl;
       while(generation<=max){
         if(!ofs.is_open()){
           cout << "ofstream not open" << endl;
@@ -249,9 +254,13 @@ void IO::playGame(){
         generation++;
         doughnut->play();
       }
+    }else{
+      cout << "output method undefined or not an option" << endl;
+      exit(EXIT_FAILURE);
     }
     delete doughnut;
+  }else{
+    cout << "non existent option" << endl;
+    exit(EXIT_FAILURE);
   }
-}
-
 }
