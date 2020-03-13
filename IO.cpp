@@ -214,11 +214,13 @@ void IO::playGame(){
         mirror->play();
       }
       delete mirror;
+    }else{
+      cout << "output method undefined or not an option" << endl;
+      exit(EXIT_FAILURE);
     }
   }else if(mode == 3){
     PlayDoughnut* doughnut = new PlayDoughnut(g);
-    cout << "doughnut" << endl;
-    if(output == 1){
+      if(output == 1){
       //pause
       while(!(doughnut->getGrid()).isEmpty()){
         doughnut->play();
@@ -241,7 +243,6 @@ void IO::playGame(){
     }else if(output == 3){
       //output to ofs
       openOutFile("output.txt");
-      ofs << "mirror mode" << endl;
       while(generation<=max){
         if(!ofs.is_open()){
           cout << "ofstream not open" << endl;
