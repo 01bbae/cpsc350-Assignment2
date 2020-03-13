@@ -235,6 +235,8 @@ void IO::playGame(){
         cin.get();
         cout << "generation: " << generation <<endl;
         (doughnut->getGrid()).printGrid();
+        cout << "<<<<<<<<<<<<<<<<<<<<<<<<<<"<< endl;
+        generation++;
       }
     }else if(output == 3){
       //output to ofs
